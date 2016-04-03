@@ -1,0 +1,53 @@
+@import url('global');
+
+.header{
+	height: @header_height;
+	background-color: @header_bgColor;
+	color: @header_color;
+	padding: @header_padding;
+	.box-shadow(0, 2px, 2px, -3px);
+	// Logo
+	#logo{
+		height: @logo_height;
+		line-height: @logo_height;
+		display: inline-block;
+		float: left;
+		overflow: hidden;
+		#logo_txt{
+			font-size: @logo_fSize;
+			font-weight: @logo_fWeight;
+		}
+		&:hover #logo_txt{ color: @color_hover; }
+		#logo_img{
+			height: @logo_height;
+			width: auto;
+		}
+	}
+	.toggle_menu{
+		height: @header_height;
+		text-align: center;
+		line-height: @header_height;
+		display: inline-block;
+		float: right;
+		font-size: 24px;
+		font-weight: 800;
+		cursor: pointer;
+		&:hover{ color: @color_hover; }
+	}
+}
+
+.nav ul{
+	list-style-type: none;
+	padding: 5px 10px;
+	background-color: #FFF;
+	.box-shadow(0, 2px, 2px, -3px);
+	li a{
+		display: block;
+		width: 100%;
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+		font-weight: 700;
+		&:hover, &.active{ color: @color_hover; }
+	}
+}

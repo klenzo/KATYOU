@@ -1,0 +1,15 @@
+@import url('mixins');
+*{padding:0;margin:0;box-sizing:border-box;outline:none;text-decoration:none;color:inherit;transition: all 0.2s ease-in;}
+body{
+	background-color: @body_bgColor;
+	color: @body_color;
+	font-family: @body_fFamily;
+	font-size: @body_fSize;
+}
+
+.container{
+	max-width: @container_mwidth;
+	margin: @container_margin;
+	overflow: auto;
+	padding: 0 5px;
+}

@@ -1,0 +1,77 @@
+@import url('elements');
+
+	@grid_nbc: 12;
+	@grid_bmd: 800px;
+	@grid_bsm: 400px;
+
+	@color_hover: rgb(231, 76, 60);
+
+// body
+	@body_bgColor: #E9E9E9;
+	@body_color: #555;
+	@body_fFamily: sans-serif;
+	@body_fSize: 15px;
+
+// .container
+	@container_mwidth: 1200px;
+	@container_margin: 0 auto;
+
+// .header
+	@header_height: 60px;
+	@header_bgColor: #FFF;
+	@header_color: @body_color;
+	@header_padding: 0;
+	// #logo
+	@logo_height: @header_height;
+	@logo_fSize: 24px;
+	@logo_fWeight: 800;
+
+
+.box-shadow(@v, @h, @b, @s, @c : #292929){
+	-webkit-box-shadow: @v @h @b @s @c;
+	box-shadow: @v @h @b @s @c;
+}
+
+.generate-divide(100);
+.generate-divide(@n, @i: 0) when (@i =< @n) {
+	.divide@{i} {
+		height:@i;
+		display: block;
+		width: 100%;
+	}
+	.generate-divide(@n, (@i + 10));
+}
+
+.float-left{float: left !important;}
+.float-right{float: right !important;}
+
+
+// GRID !
+.generate-columns(@grid_nbc);
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+	.col-@{i} {
+		width: (@i * 100% / @n);
+		display: inline-block;
+	}
+	.generate-columns(@n, (@i + 1));
+}
+@media screen and (min-width: @grid_bsm) and (max-width: @grid_bmd) {
+	.generate-mdcolumns(@grid_nbc);
+	.generate-mdcolumns(@n, @i: 1) when (@i =< @n) {
+	  .md-@{i} {
+	    width: (@i * 100% / @n);
+	    display: inline-block;
+	  }
+	  .generate-mdcolumns(@n, (@i + 1));
+	}
+}
+@media screen and (max-width: @grid_bsm) {
+	.generate-smcolumns(@grid_nbc);
+	.generate-smcolumns(@n, @i: 1) when (@i =< @n) {
+	  .sm-@{i} {
+	    width: (@i * 100% / @n);
+	    display: inline-block;
+	  }
+	  .generate-smcolumns(@n, (@i + 1));
+	}
+}
